@@ -11,6 +11,8 @@ A 2048 game api for training supervised learning (imitation learning). Use RNN m
 * [`static/`](static/): frontend assets (based on Vue.js) for web app.
 * [`webapp.py`](webapp.py): run the web app (backend) demo.
 * [`evaluate.py`](evaluate.py): evaluate your self-defined agent.
+* [`net.py`](net.py): the RNN net I use in my models.
+* [`getdata.py`](getdata.py): the code I use to get training data (data.csv, data_online_512.csv and data_online_1024.csv). 
 
 # Requirements
 * code only tested on linux system (ubuntu 16.04)
@@ -28,9 +30,9 @@ class MyAgent(Agent):
         self.model_256 = net.RNN()
         self.model_512 = net.RNN()
         self.model_1024 = net.RNN()
-        self.model_256.load_state_dict(torch.load('Epoch5_new.pkl', map_location=torch.device('cpu')))
-        self.model_512.load_state_dict(torch.load('Epoch4_512_new.pkl', map_location=torch.device('cpu')))
-        self.model_1024.load_state_dict(torch.load('Epoch7_1024.pkl', map_location=torch.device('cpu')))
+        self.model_256.load_state_dict(torch.load('model.pkl', map_location=torch.device('cpu')))
+        self.model_512.load_state_dict(torch.load('model512.pkl', map_location=torch.device('cpu')))
+        self.model_1024.load_state_dict(torch.load('model1024.pkl', map_location=torch.device('cpu')))
 
     def step(self):
         board1 = self.game.board
@@ -49,6 +51,9 @@ class MyAgent(Agent):
         return direction
 
 ```
+# Play 2048 using my agent
+
+# Train my agent
 
 # To compile the pre-defined ExpectiMax agent
 
