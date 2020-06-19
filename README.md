@@ -1,5 +1,5 @@
 # 2048-api
-A 2048 game api for training supervised learning (imitation learning) or reinforcement learning agents
+A 2048 game api for training supervised learning (imitation learning). Use RNN model to train my agent
 
 # Code structure
 * [`game2048/`](game2048/): the main package.
