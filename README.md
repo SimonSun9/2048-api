@@ -21,8 +21,8 @@
 
 # 测试结果及必要文件
 * EE369_evaluate.log 是10轮游戏结果。
-* 
-* `model/`路径中是三个阶段的模型。
+* EE369_fingerprint.json 是agent指纹。
+* `model/`路径中是三个阶段的模型，文件超过25MB，可从https://drive.google.com/drive/folders/1A4ggIhyjCi5hBjWbudFmDTiUDryDCI3h?usp=sharing 下载。
 * `data/`路径是数据储存，因为文件较大，需要下载或自己生成。
 
 # 如何使用MyAgent测试游戏
