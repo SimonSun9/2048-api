@@ -17,7 +17,13 @@
 
 # Requirements
 * code only tested on linux system (ubuntu 16.04)
-* Python 3 (Anaconda 3.6.3 specifically) with torch, numpy and flask
+* Python 3 (Anaconda 3.6.3 specifically) with pytorch 1.3.1, numpy and flask
+
+# 测试结果及必要文件
+* EE369_evaluate.log 是10轮游戏结果。
+* 
+* `model/`路径中是三个阶段的模型。
+* `data/`路径是数据储存，因为文件较大，需要下载或自己生成。
 
 # 如何使用MyAgent测试游戏
 * 在`evaluate.py`中将agent设置成`MyAgent`
@@ -27,10 +33,10 @@
 
 # 如何获得训练数据
 * 使用`getdata.py`获取数据。
-* 从下载我使用的数据。
+* 从 https://drive.google.com/drive/folders/1QZMxrez9o0aApOEmOEoKN6GS8yP8Lr_Z?usp=sharing 下载我使用的数据。
 
 # 如何训练模型
-* 首先需要将数据放入`data/`文件夹中，运行`getdata.py`获得或者下载。
+* 首先需要将数据放入`data/`文件夹中，运行`getdata.py`获得或者下载我所使用的数据。
 * 在`train.py`中设置数据路径。
 * 在`train.py`中设置模型存储路径，默认在`model_train/`文件夹中。
 * 运行`train.py`。支持cuda加速。
