@@ -1,25 +1,26 @@
 # 2048-api
-A 2048 game api for training supervised learning (imitation learning). Use RNN model to train my agent
+用模仿学习，RNN神经网络实现2048游戏
 
-# Code structure
+# 代码结构
 * [`game2048/`](game2048/): the main package.
     * [`game.py`](game2048/game.py): the core 2048 `Game` class.
-    * [`agents.py`](game2048/agents.py): the `Agent` class with instances.  
+    * [`agents.py`](game2048/agents.py): 包含 `Agent` 类。`MyAgent` 是它的一个子类 
     * [`displays.py`](game2048/displays.py): the `Display` class with instances, to show the `Game` state.
     * [`expectimax/`](game2048/expectimax): a powerful ExpectiMax agent by [here](https://github.com/nneonneo/2048-ai).
 * [`explore.ipynb`](explore.ipynb): introduce how to use the `Agent`, `Display` and `Game`.
 * [`static/`](static/): frontend assets (based on Vue.js) for web app.
 * [`webapp.py`](webapp.py): run the web app (backend) demo.
 * [`evaluate.py`](evaluate.py): evaluate your self-defined agent.
-* [`net.py`](net.py): the RNN net I use in my models.
-* [`getdata.py`](getdata.py): the code I use to get training data (data.csv, data_online_512.csv and data_online_1024.csv). 
+* [`net.py`](net.py): RNN 网络结构
+* [`getdata.py`](getdata.py): 用来生成训练数据的程序，可以选择专家agent，也可以选择自己的agent。可以设置想要保存的分数段。
+* [`train.py`](train.py): 用来训练模型的代码。训练出的模型保存在model_train文件夹中，训练数据在data文件夹中
 
 # Requirements
 * code only tested on linux system (ubuntu 16.04)
 * Python 3 (Anaconda 3.6.3 specifically) with numpy and flask
 * Pytorch
 
-# My own agents
+# 我的agent模型
 ```python
 from game2048.agents import Agent
 
@@ -30,7 +31,7 @@ class MyAgent(Agent):
         self.model_256 = net.RNN()
         self.model_512 = net.RNN()
         self.model_1024 = net.RNN()
-        self.model_256.load_state_dict(torch.load('model.pkl', map_location=torch.device('cpu')))
+        self.model_256.load_state_dict(torch.load('model128.pkl', map_location=torch.device('cpu')))
         self.model_512.load_state_dict(torch.load('model512.pkl', map_location=torch.device('cpu')))
         self.model_1024.load_state_dict(torch.load('model1024.pkl', map_location=torch.device('cpu')))
 
@@ -51,7 +52,8 @@ class MyAgent(Agent):
         return direction
 
 ```
-# Play 2048 using my agent
+# 如何用MyAgent进行游戏
+
 
 # Train my agent
 
