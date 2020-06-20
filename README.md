@@ -13,12 +13,27 @@
 * [`evaluate.py`](evaluate.py): evaluate your self-defined agent.
 * [`net.py`](net.py): RNN 网络结构
 * [`getdata.py`](getdata.py): 用来生成训练数据的程序，可以选择专家agent，也可以选择自己的agent。可以设置想要保存的分数段。
-* [`train.py`](train.py): 用来训练模型的代码。训练出的模型保存在model_train文件夹中，训练数据在data文件夹中
+* [`train.py`](train.py): 用来训练模型的代码。训练出的模型保存在 `model_train/` 文件夹中，训练数据在 `data/` 文件夹中
 
 # Requirements
 * code only tested on linux system (ubuntu 16.04)
-* Python 3 (Anaconda 3.6.3 specifically) with numpy and flask
-* Pytorch
+* Python 3 (Anaconda 3.6.3 specifically) with torch, numpy and flask
+
+# 如何使用MyAgent测试游戏
+* 在`evaluate.py`中将agent设置成`MyAgent`
+* 三个阶段的模型保存在`model/`文件夹中，分别为`model128.pkl`，`model512.pkl` 和 `model1024.pkl`。确保`agent.py`中的`MyAgent`类加载这三个模型。
+* 加载模型时根据使用CPU还是GPU设置不同的参数。
+* 直接运行`evaluate.py`会输出测试结果。或存入log文件。
+
+# 如何获得训练数据
+* 使用`getdata.py`获取数据。
+* 从下载我使用的数据。
+
+# 如何训练模型
+* 首先需要将数据放入`data/`文件夹中，运行`getdata.py`获得或者下载。
+* 在`train.py`中设置数据路径。
+* 在`train.py`中设置模型存储路径，默认在`model_train/`文件夹中。
+* 运行`train.py`。支持cuda加速。
 
 # 我的agent模型
 ```python
@@ -52,10 +67,6 @@ class MyAgent(Agent):
         return direction
 
 ```
-# 如何用MyAgent进行游戏
-
-
-# Train my agent
 
 # To compile the pre-defined ExpectiMax agent
 
